@@ -12,14 +12,14 @@ private:
     std::list<std::string> *table; // Double pointer to array of string. Array of lists with each list representing a letter.
 
 public:
-    hashTable(int HTLength); // Constructor with hash table length given.
+    hashTable(int HTLength);             // Constructor with hash table length given.
     char hashFunction(std::string word); // Small method to turn a string into a character by getting the first letter.
-    void insertWord(std::string word); // Method given word, find out which letter and list it belongs in, and affix to the end.
-    ~hashTable(); // Destructor to delete entirety of the hash table.
-    void displayHash(void); // Unused method to output the entire hash table.
-    void findWord(std::string word); // Try to find the given word. If unable to find, suggest words. (method below this one)
+    void insertWord(std::string word);   // Method given word, find out which letter and list it belongs in, and affix to the end.
+    ~hashTable();                        // Destructor to delete entirety of the hash table.
+    //void displayHash(void); // Unused method to output the entire hash table.
+    void findWord(std::string word);                     // Try to find the given word. If unable to find, suggest words. (method below this one)
     void suggestWords(std::string word, bool wordFound); // Suggest words based on the first 2 letters of the word or mispelling. If wordFound is false, also call suggestFirstWord to ask "Did you mean *".
-    bool suggestFirstWord(std::string word); // Suggests a word to the user. If the suggested word is right, print true, else print false.
+    bool suggestFirstWord(std::string word);             // Suggests a word to the user. If the suggested word is right, print true, else print false.
 };
 
 hashTable::hashTable(int HTLength)
@@ -46,7 +46,7 @@ hashTable::~hashTable()
     delete[] table;
 }
 
-void hashTable::displayHash(void)
+/*void hashTable::displayHash(void)
 {
     for (int i = 0; i < hashTableLength; i++)
     {
@@ -55,7 +55,7 @@ void hashTable::displayHash(void)
             std::cout << " >> " << x;
         std::cout << std::endl;
     }
-}
+}*/
 
 void hashTable::findWord(std::string word)
 {
@@ -98,13 +98,13 @@ void hashTable::suggestWords(std::string word, bool wordFound)
                 std::cout << std::boolalpha;
                 std::cout << foundSuggestion << std::endl;
                 /*if (!foundSuggestion)
-                    return;*/ 
+                    return;*/
                 firstSuggestion = true;
                 timer.start();
             }
             timer.stop();
             std::cout << x << std::endl;
-            std::cout << timer.GetInterval() <<  " micro-sec" << std::endl;
+            std::cout << timer.GetInterval() << " micro-sec" << std::endl;
             timer.start();
         }
     }

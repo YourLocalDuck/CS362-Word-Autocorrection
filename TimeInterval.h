@@ -6,18 +6,20 @@ long    tv_sec;         // seconds
 long    tv_usec;        // microseconds
 };
 */
-class TimeInterval{
+class TimeInterval
+{
 public:
 	timeval start_time;
 	timeval end_time;
-	public:
-		TimeInterval();
-		void start();
-		void stop();
-		float GetInterval();
+
+public:
+	TimeInterval();
+	void start();
+	void stop();
+	float GetInterval();
 };
 
-TimeInterval::TimeInterval(){}
+TimeInterval::TimeInterval() {}
 
 void TimeInterval::start()
 {
@@ -31,9 +33,9 @@ void TimeInterval::stop()
 
 float TimeInterval::GetInterval()
 {
-	float t =(float)(end_time.tv_sec-start_time.tv_sec)*1000000.0+(float)(end_time.tv_usec-start_time.tv_usec);	// in micro-sec
+	float t = (float)(end_time.tv_sec - start_time.tv_sec) * 1000000.0 + (float)(end_time.tv_usec - start_time.tv_usec); // in micro-sec
 
-//	t = t / 1000000.0		// in sec
+	//	t = t / 1000000.0		// in sec
 
 	return t;
 }

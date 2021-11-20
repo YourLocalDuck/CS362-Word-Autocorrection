@@ -24,8 +24,6 @@ void inputDictionary(hashTable &H)
     }
 }
 
-
-
 int main(int argc, char *argv[])
 {
     // New hash table
@@ -34,14 +32,11 @@ int main(int argc, char *argv[])
     // FileIO to hashtable
     inputDictionary(h);
 
-    h.displayHash();
-
-    /*std::string userInput;
+    std::string userInput;
     std::cout << "user enters: " << std::endl;
     std::getline(std::cin, userInput);
     std::cout << "the program responds: " << std::endl;
-    h.findWord(userInput); // Algorithm*/
-
+    h.findWord(userInput); // Algorithm
 
     return 0;
 }
